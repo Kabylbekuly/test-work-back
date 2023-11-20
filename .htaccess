@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} (.*)$
+RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,L]
+#php_flag display_errors On
+RewriteEngine on
+RewriteRule ^$ public/ [L]
+RewriteRule ((?s).*) public/$1 [L]
+</IfModule>
